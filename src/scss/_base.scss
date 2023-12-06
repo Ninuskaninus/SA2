@@ -1,0 +1,12 @@
+body{
+    background-color: $primary;
+    color: $white;
+    font-family: $font-family-sans-serif;
+}
+
+nav{
+    background-color: $primary;
+    color: $white;
+    border-bottom: 1px solid $secondary;
+    padding: 0.5rem 1rem;
+}
