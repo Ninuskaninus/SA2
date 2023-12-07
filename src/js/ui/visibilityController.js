@@ -26,9 +26,9 @@ export function topBar() {
 }
 
 export function changeLoginBtn() {
-  const loginBtns = document.querySelectorAll(".login-btn");
   const token = localStorage.getItem("token");
 
+  const loginBtns = document.querySelectorAll(".login-btn");
   if (!token) {
     loginBtns.forEach((btn) => {
       btn.innerHTML = "Login";
@@ -41,6 +41,20 @@ export function changeLoginBtn() {
       btn.addEventListener("click", () => {
         logout();
       });
+    });
+  }
+
+  const registerBtn = document.querySelectorAll(".register-btn");
+  if (!token) {
+    registerBtn.forEach((btn) => {
+      btn.innerHTML = "Register";
+    });
+  } else {
+    registerBtn.forEach((btn) => {
+      btn.innerHTML = "Profile";
+      btn.href = "/profile/index.html";
+      btn.dataset.toggle = "none";
+      btn.dataset.target = "none";
     });
   }
 }

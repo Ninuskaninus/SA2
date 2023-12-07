@@ -11,7 +11,7 @@ nav{
     padding: 0.5rem 1rem;
 }
 
-.navbar-nav button{
+.navbar-nav button, .navbar-nav a{
     background-color: $primary;
     color: $white;
     border: none;
