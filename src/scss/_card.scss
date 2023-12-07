@@ -1,0 +1,16 @@
+.card{
+    background-color: $gray-800;
+    border-color: $gray-800 !important;
+    outline: none !important;
+    color: $white;
+    box-shadow: $box-shadow;
+
+}
+
+.card-body{
+    background-color: $gray-800;
+    border-color: $gray-800 !important;
+    outline: none !important;
+    color: $white;
+    cursor: pointer;
+}
