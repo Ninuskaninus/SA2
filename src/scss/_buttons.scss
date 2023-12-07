@@ -48,6 +48,7 @@
     outline: none !important;
     border-radius: 0 41px 41px 0;
     border-color: $gray-800;
+    margin: 0;
     &:hover{
         background-color: $gray-800;
         border-color: $gray-800;
@@ -66,4 +67,18 @@
 
 .btn-success{
     border-radius: 25px;
+}
+
+.close{
+    color: $white;
+    background-color: $gray-800;
+    box-shadow: $box-shadow;
+    outline: none !important;
+    border: none;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    &:hover{
+        color: $gray-400;
+    }
 }

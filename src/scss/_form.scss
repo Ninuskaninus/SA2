@@ -41,4 +41,28 @@
         opacity: 0.9;
     }
 
+    & input{
+        color: $white;
+    }
+
+    & select{
+        color: $white;
+    }
+
+    &::after{
+        color: $white;
+    }
 }
+
+.form-floating>.form-control:not(:placeholder-shown)~label::after{
+    background-color: $gray-800 !important;
+    border-color: $gray-800;
+    color: $white !important;
+    
+    &label:focus-within{
+        color: $gray-400 !important;
+    }
+}
+
+
+   
