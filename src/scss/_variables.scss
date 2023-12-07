@@ -29,11 +29,17 @@ $success: $green;
 $info: $cyan;
 $warning: $yellow;
 $danger: $red;
-$light: $gray-100;
+$light: $pink;
 $dark: $gray-800;
 
 $body-bg: $primary;
 $body-color: $white;
 
 $font-family-sans-serif: 'Montserrat', sans-serif ;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$box-shadow: 6px 9px 4px 0px rgba(0, 0, 0, 0.25);
+
+.bg-primary {
+    background-color: $primary !important;
+}
