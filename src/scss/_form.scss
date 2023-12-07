@@ -64,5 +64,19 @@
     }
 }
 
+.modal-forms{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+    & input{
+        border-radius: 10px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+.error{
+    border: 1px solid $red !important;
+}
+
 
    

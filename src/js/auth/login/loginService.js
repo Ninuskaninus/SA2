@@ -23,7 +23,7 @@ export async function login() {
                 localStorage.setItem("username", json.name);
                 window.location.href = "index.html";
             } else {
-                console.log("Something went wrong");
+                console.log(response.status);
             }
         }
         catch (error) {
