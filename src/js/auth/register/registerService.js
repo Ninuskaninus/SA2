@@ -1,9 +1,8 @@
-import { registerForm } from "./registerForm.js";  
+import { registerForm } from "./registerForm.js";
 const url = "https://api.noroff.dev/api/v1/auction/auth/register";
 
 export async function register() {
-    const registerBody = registerForm();
-    
+  const registerBody = registerForm();
 
   async function postRegister() {
     try {

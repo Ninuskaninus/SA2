@@ -51,7 +51,7 @@
             </div>
             <!-- Container with Cards -->
             <div class="container mt-5">
-                <div class="row">
+                <div class="row" >
             
                     <!-- Card 1 -->
                     <div class="col-md-4 mb-4">
@@ -88,7 +88,7 @@
             <div class="container mt-5">
                 <div class="row justify-content-center">
             
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
                                 aria-describedby="basic-addon2">
@@ -102,200 +102,156 @@
                 </div>
             </div>
             <!-- Container with Listings -->
-            <div class="container mt-5">
-                <div class="row">
-            
-<div class="col-md-4 mb-4">
-    <div class="card h-100 d-flex flex-column">
-        <img src="/src/assets/car.png" class="card-img-top" alt="Listing 1">
-        <div class="card-body d-flex flex-column p-3">
-            <h5 class="card-title mt-4">Listing 1 Title</h5>
-            <p class="card-text flex-grow-1"><small>Deadline:</small> <span><small> 01.12.2023, 17:30</small></span></p>
-            <h4 class="card-text text-light mb-4"><span>100</span> Credit</h4>
-            <div class="d-flex justify-content-between align-items-center mt-auto">
-                <a href="#" class="btn-link">See More</a>
-                <button class="btn btn-success ml-2 w-50">Bid</button>
-            </div>
-        </div>
-    </div>
+<div class="container mt-5">
+    <div class="row" id="listingsContainer"></div>
 </div>
-<div class="col-md-4 mb-4">
-    <div class="card h-100 d-flex flex-column">
-        <img src="/src/assets/car.png" class="card-img-top" alt="Listing 1">
-        <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Listing 1 Title</h5>
-            <p class="card-text flex-grow-1">Deadline: January 1, 2023</p>
-            <p class="card-text">Price: $100</p>
-            <div class="d-flex justify-content-between mt-auto">
-                <a href="#" class="btn btn-primary">See More</a>
-                <button class="btn btn-success ml-2">Bid</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4 mb-4">
-    <div class="card h-100 d-flex flex-column">
-        <img src="/src/assets/car.png" class="card-img-top" alt="Listing 1">
-        <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Listing 1 Title</h5>
-            <p class="card-text flex-grow-1">Deadline: January 1, 2023</p>
-            <p class="card-text">Price: $100</p>
-            <div class="d-flex justify-content-between mt-auto">
-                <a href="#" class="btn btn-primary">See More</a>
-                <button class="btn btn-success ml-2">Bid on this</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body d-flex flex-column">
-                <form id="loginForm" class="modal-forms">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="loginEmail" placeholder="Username">
-                        <label for="loginEmail">Email</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-                        <label for="loginPassword">Password</label>
-                    </div>
-                    <div class="mt-5">
-                        <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Register Modal -->
-        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog vh-100 d-flex align-items-center" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="registerModalLabel">Register</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="registrationForm" class="modal-forms">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="registerUsername" placeholder="Username" required
-                                    pattern="^\S+$">
-                                <label for="registerUsername">Username</label>
-                                <small id="usernameError" class="text-danger d-none">Username cannot contain spaces</small>
+                <!--Add listing-->
+                <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addListingModalLabel">Add Listing</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input  type="email" class="form-control" id="registerEmail" placeholder="Email" required
-                                    >
-                                <label for="registerEmail">Email</label>
-                                <small id="emailError" class="text-danger d-none">Email must be a noroff.no or stud.noroff.no email</small>
+                            <div class="modal-body">
+                
+                                <!-- Your form content goes here -->
+                                <form>
+                                    <!-- Title -->
+                                    <div class="form-group">
+                                        <label for="title">Title *</label>
+                                        <input type="text" class="form-control" id="title" name="title" required>
+                                    </div>
+                
+                                    <!-- Description -->
+                                    <div class="form-group">
+                                        <label for="description">Description *</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                                    </div>
+                
+                                    <!-- Deadline -->
+                                    <div class="form-group">
+                                        <label for="deadline">Deadline *</label>
+                                        <!-- You can use a date input or a third-party date picker library here -->
+                                        <input type="datetime-local" class="form-control" id="deadline" name="deadline" required>
+                                    </div>
+                
+                                    <!-- Tags -->
+                                    <div class="form-group">
+                                        <label for="tags">Tags</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="tags" name="tags">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                            </div>
+                                        </div>
+                                        <!-- Tags container -->
+                                        <div id="tags-container"></div>
+                                    </div>
+                
+                                    <!-- Image URLs -->
+                                    <div class="form-group">
+                                        <label for="imageUrls">Image URLs</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="imageUrls" name="imageUrls">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                            </div>
+                                        </div>
+                                        <!-- Image container -->
+                                        <div id="image-container"></div>
+                                    </div>
+                
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="registerPassword" placeholder="Password"
-                                    required minlength="8">
-                                <label for="registerPassword">Password</label>
-                                <small id="passwordError" class="text-danger d-none">Password must be at least 8 characters</small>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="url" class="form-control" id="registerAvatar" placeholder="Avatar (optional)">
-                                <label for="registerAvatar">Avatar (optional)</label>
-                            </div>
-                            <div class="mt-5"></div>
-                            <button id="registerBtn" type="submit" class="btn btn-primary">Register</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--Add listing-->
-        <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addListingModalLabel">Add Listing</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-        
-                        <!-- Your form content goes here -->
-                        <form>
-                            <!-- Title -->
-                            <div class="form-group">
-                                <label for="title">Title *</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                <!-- Register Modal -->
+                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog vh-100 d-flex align-items-center" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-        
-                            <!-- Description -->
-                            <div class="form-group">
-                                <label for="description">Description *</label>
-                                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                            </div>
-        
-                            <!-- Deadline -->
-                            <div class="form-group">
-                                <label for="deadline">Deadline *</label>
-                                <!-- You can use a date input or a third-party date picker library here -->
-                                <input type="datetime-local" class="form-control" id="deadline" name="deadline" required>
-                            </div>
-        
-                            <!-- Tags -->
-                            <div class="form-group">
-                                <label for="tags">Tags</label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="tags" name="tags">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                            <div class="modal-body">
+                                <form id="registrationForm" class="modal-forms">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="registerUsername" placeholder="Username" required
+                                            pattern="^\S+$">
+                                        <label for="registerUsername">Username</label>
+                                        <small id="usernameError" class="text-danger d-none">Username cannot contain spaces</small>
                                     </div>
-                                </div>
-                                <!-- Tags container -->
-                                <div id="tags-container"></div>
-                            </div>
-        
-                            <!-- Image URLs -->
-                            <div class="form-group">
-                                <label for="imageUrls">Image URLs</label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="imageUrls" name="imageUrls">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="registerEmail" placeholder="Email" required>
+                                        <label for="registerEmail">Email</label>
+                                        <small id="emailError" class="text-danger d-none">Email must be a noroff.no or stud.noroff.no
+                                            email</small>
                                     </div>
-                                </div>
-                                <!-- Image container -->
-                                <div id="image-container"></div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="registerPassword" placeholder="Password"
+                                            required minlength="8">
+                                        <label for="registerPassword">Password</label>
+                                        <small id="passwordError" class="text-danger d-none">Password must be at least 8
+                                            characters</small>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="url" class="form-control" id="registerAvatar" placeholder="Avatar (optional)">
+                                        <label for="registerAvatar">Avatar (optional)</label>
+                                    </div>
+                                    <div class="mt-5"></div>
+                                    <button id="registerBtn" type="submit" class="btn btn-primary">Register</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
                             </div>
-        
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-        
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        </div>
+                <!-- Login Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body d-flex flex-column">
+                                <form id="loginForm" class="modal-forms">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="loginEmail" placeholder="Username">
+                                        <label for="loginEmail">Email</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                        <label for="loginPassword">Password</label>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </main>
     <script type="module" src="/src/js/app/main.js" defer></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
