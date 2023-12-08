@@ -8,7 +8,7 @@ export async function getProfile() {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    return null; 
+    return null;
   }
 
   try {
@@ -37,5 +37,3 @@ export async function getProfile() {
     throw error;
   }
 }
-
-
