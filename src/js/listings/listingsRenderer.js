@@ -25,10 +25,10 @@ export function renderedListings() {
     const cardImage = document.createElement("img");
     cardImage.classList.add("card-img-top");
 
-    const validImageUrls = listing.media.filter(isValidImageUrl);
+    const image = listing.media;
 
-    if (validImageUrls.length > 0) {
-      cardImage.src = validImageUrls[0];
+    if (image.length > 0) {
+      cardImage.src = image[0];
     } else {
       cardImage.src =
         "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";
