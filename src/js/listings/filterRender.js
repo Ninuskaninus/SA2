@@ -13,7 +13,6 @@ export async function filterRender() {
         const housingListings = listings.filter((listing) => {
             return listing.tags.some((tag) => housing.includes(tag));
         });
-        console.log(housingListings);
         renderListings(housingListings, "housing");
     });
 
@@ -22,7 +21,6 @@ export async function filterRender() {
         const electronicsListings = listings.filter((listing) => {
             return listing.tags.some((tag) => electronics.includes(tag));
         });
-        console.log(electronicsListings);
         renderListings(electronicsListings, "electronics");
     });
 
@@ -31,7 +29,6 @@ export async function filterRender() {
         const vehiclesListings = listings.filter((listing) => {
             return listing.tags.some((tag) => vehicles.includes(tag));
         });
-        console.log(vehiclesListings);
         renderListings(vehiclesListings, "vehicles");
     });
 }
@@ -39,7 +36,6 @@ export async function filterRender() {
 function renderListings(listings, category) {
     const listingsContainer = document.querySelector("#listingsContainer");
     const messageContainer = document.querySelector("#messageContainer");
-    console.log(messageContainer);
 
     if (!listingsContainer || !messageContainer) {
         console.error("Listings or message container not found.");
