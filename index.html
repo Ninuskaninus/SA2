@@ -18,7 +18,7 @@
 </nav>
 <nav class="navbar navbar-expand-sm p-2">
     <a class="navbar-brand p-2" href="#"><img src="/src/assets/navLogo.png" alt=""></a>
-    <button type="button" class="btn btn-primary d-none d-sm-flex ml-auto" data-toggle="modal" data-target="#addListingModal">Sell something!</button>
+    <button type="button" class="btn btn-primary d-none d-sm-flex ml-auto sell-btn" data-toggle="modal" data-target="#addListingModal">Sell something!</button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                 <a class="btn btn-light mx-2 register-btn" data-toggle="modal" data-target="#registerModal">Register</a>
             </li>
             <li class="nav-item">
-                <button class="btn btn-light mx-2" data-toggle="modal" data-target="#addListingModal">Sell something</button>
+                <button class="btn btn-light mx-2 sell-btn" data-toggle="modal" data-target="#addListingModal">Sell something</button>
             </li>
         </ul>
     </div>
@@ -46,7 +46,7 @@
             <div class="hero bg-primary text-white text-center py-5">
                 <h1 class="display-4 font-weight-bold">Auction House</h1>
                 <p class="lead font-weight-bold">Buy and sell items</p>
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addListingModal">Get Started</button>
+                <button class="btn btn-primary btn-lg sell-btn" data-toggle="modal" data-target="#addListingModal">Get Started</button>
                 <div class="hero-filter"></div>
             </div>
             <!-- Container with Cards -->
@@ -108,7 +108,7 @@
                 <!--Add listing-->
                 <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="addListingModalLabel">Add Listing</h5>
@@ -119,17 +119,19 @@
                             <div class="modal-body">
                 
                                 <!-- Your form content goes here -->
-                                <form>
+                                <form class="modal-forms">
                                     <!-- Title -->
                                     <div class="form-group">
                                         <label for="title">Title *</label>
                                         <input type="text" class="form-control" id="title" name="title" required>
+                                        <small id="errorTitle" class="text-danger pb-2 d-none">Listing needs a title</small>
                                     </div>
                 
                                     <!-- Description -->
                                     <div class="form-group">
                                         <label for="description">Description *</label>
                                         <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                                        <small id="errorDescription" class="text-danger pb-2 d-none">Listing needs a description</small>
                                     </div>
                 
                                     <!-- Deadline -->
@@ -137,6 +139,7 @@
                                         <label for="deadline">Deadline *</label>
                                         <!-- You can use a date input or a third-party date picker library here -->
                                         <input type="datetime-local" class="form-control" id="deadline" name="deadline" required>
+                                        <small id="errorDeadline" class="text-danger pb-2 d-none">Listing needs a deadline</small>
                                     </div>
                 
                                     <!-- Tags -->
@@ -145,11 +148,11 @@
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" id="tags" name="tags">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                                <button class="btn btn-outline-secondary" type="button" id="addTagBtn" >+</button>
                                             </div>
                                         </div>
                                         <!-- Tags container -->
-                                        <div id="tags-container"></div>
+                                        <div id="tags-container" class="container col-md-12 row"></div>
                                     </div>
                 
                                     <!-- Image URLs -->
@@ -158,22 +161,23 @@
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" id="imageUrls" name="imageUrls">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                                <button class="btn btn-outline-secondary" type="button" id="addImgBtn">+</button>
                                             </div>
                                         </div>
                                         <!-- Image container -->
-                                        <div id="image-container"></div>
+                                        <div id="image-container" class="container col-md-12 row"></div>
                                     </div>
                 
                                     <!-- Submit button -->
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="mt-5">
+                                        <button id="addListingBtn" type="button" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    </div>
                                 </form>
                 
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

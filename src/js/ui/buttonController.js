@@ -1,5 +1,6 @@
 import { login } from "../auth/login/loginService.js";
 import { register } from "../auth/register/registerService.js";
+import  {addListing } from "../listings/addListingsService.js";
 
 export function loginTrigger() {
   const loginButton = document.querySelector("#loginBtn");
@@ -34,14 +35,11 @@ export function registerTrigger() {
 
   registerButton.addEventListener("click", (event) => {
     event.preventDefault();
-
-    // Reset error styles
     usernameInput.classList.remove("error");
     emailInput.classList.remove("error");
     passwordInput.classList.remove("error");
     avatarInput.classList.remove("error");
 
-    // Validate username
     const username = usernameInput.value.trim();
     if (username.includes(" ") || username.length < 0) {
       usernameInput.classList.add("error");
@@ -52,7 +50,6 @@ export function registerTrigger() {
       usernameInput.classList.remove("error");
     }
 
-    // Validate email
     const email = emailInput.value.trim();
     const validEmailDomains = ["@noroff.no", "@stud.noroff.no"];
     if (!validEmailDomains.some((domain) => email.endsWith(domain))) {
@@ -64,7 +61,6 @@ export function registerTrigger() {
       emailInput.classList.remove("error");
     }
 
-    // Validate password
     const password = passwordInput.value;
     if (password.length < 8) {
       passwordInput.classList.add("error");
@@ -75,7 +71,6 @@ export function registerTrigger() {
       passwordInput.classList.remove("error");
     }
 
-    // Perform registration if all validations pass
     if (
       !usernameInput.classList.contains("error") &&
       !emailInput.classList.contains("error") &&
@@ -85,4 +80,53 @@ export function registerTrigger() {
       register();
     }
   });
+}
+
+
+export function addListingsTrigger() {
+  const addListingBtn = document.querySelector("#addListingBtn");
+  const titleInput = document.querySelector("#title");
+  const descriptionInput = document.querySelector("#description");
+  const deadlineInput = document.querySelector("#deadline");
+
+  const errorTitle = document.querySelector("#errorTitle");
+  const errorDescription = document.querySelector("#errorDescription");
+  const errorDeadline = document.querySelector("#errorDeadline");
+
+addListingBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (titleInput.value === "") {
+    titleInput.classList.add("error");
+    errorTitle.classList.remove("d-none");
+  } else {
+    titleInput.classList.remove("error");
+    errorTitle.classList.add("d-none");
+  }
+
+  if (descriptionInput.value === "") {
+    descriptionInput.classList.add("error");
+    errorDescription.classList.remove("d-none");
+  } else {
+    descriptionInput.classList.remove("error");
+    errorDescription.classList.add("d-none");
+  }
+
+  if (deadlineInput.value === "") {
+    deadlineInput.classList.add("error");
+    errorDeadline.classList.remove("d-none");
+  } else {
+    deadlineInput.classList.remove("error");
+    errorDeadline.classList.add("d-none");
+  }
+
+  if (
+    !titleInput.classList.contains("error") &&
+    !descriptionInput.classList.contains("error") &&
+    !deadlineInput.classList.contains("error")
+  ) {
+    addListing();
+    alert("Listing added!");
+  }
+});
 }

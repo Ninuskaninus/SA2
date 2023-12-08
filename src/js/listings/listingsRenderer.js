@@ -3,6 +3,11 @@ const listings = await getListings();
 
 export function renderedListings() {
   const listingsContainer = document.getElementById("listingsContainer");
+    if (!listingsContainer) {
+    console.error("Listings container not found");
+    return;
+  }
+  
   const sortedListing = listings
     .filter(
       (listing) => listing.title && listing.title.toLowerCase() !== "test",
@@ -25,10 +30,10 @@ export function renderedListings() {
     const cardImage = document.createElement("img");
     cardImage.classList.add("card-img-top");
 
-    const validImageUrls = listing.media.filter(isValidImageUrl);
+    const image = listing.media;
 
-    if (validImageUrls.length > 0) {
-      cardImage.src = validImageUrls[0];
+    if (image.length > 0) {
+      cardImage.src = image[0];
     } else {
       cardImage.src =
         "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";
@@ -56,7 +61,6 @@ export function renderedListings() {
     cardText.appendChild(cardDeadline);
 
     const sortedBids = listing.bids.sort((a, b) => b.amount - a.amount);
-    console.log(sortedBids);
 
     const cardPrice = document.createElement("h4");
     cardPrice.classList.add("card-text", "text-light", "mb-4", "mt-4");
