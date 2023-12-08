@@ -1,5 +1,7 @@
 import { login } from "../auth/login/loginService.js";
 import { register } from "../auth/register/registerService.js";
+import {addListing} from "../listings/addListingsService.js";
+import { addListingForm } from "../listings/listingsForm.js";
 
 export function loginTrigger() {
   const loginButton = document.querySelector("#loginBtn");
@@ -34,14 +36,11 @@ export function registerTrigger() {
 
   registerButton.addEventListener("click", (event) => {
     event.preventDefault();
-
-    // Reset error styles
     usernameInput.classList.remove("error");
     emailInput.classList.remove("error");
     passwordInput.classList.remove("error");
     avatarInput.classList.remove("error");
 
-    // Validate username
     const username = usernameInput.value.trim();
     if (username.includes(" ") || username.length < 0) {
       usernameInput.classList.add("error");
@@ -52,7 +51,6 @@ export function registerTrigger() {
       usernameInput.classList.remove("error");
     }
 
-    // Validate email
     const email = emailInput.value.trim();
     const validEmailDomains = ["@noroff.no", "@stud.noroff.no"];
     if (!validEmailDomains.some((domain) => email.endsWith(domain))) {
@@ -64,7 +62,6 @@ export function registerTrigger() {
       emailInput.classList.remove("error");
     }
 
-    // Validate password
     const password = passwordInput.value;
     if (password.length < 8) {
       passwordInput.classList.add("error");
@@ -75,7 +72,6 @@ export function registerTrigger() {
       passwordInput.classList.remove("error");
     }
 
-    // Perform registration if all validations pass
     if (
       !usernameInput.classList.contains("error") &&
       !emailInput.classList.contains("error") &&
@@ -85,4 +81,13 @@ export function registerTrigger() {
       register();
     }
   });
+}
+
+
+export function addListingsTrigger() {
+const addListingBtn = document.querySelector("#addListingBtn");
+addListingBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addListing();
+});
 }

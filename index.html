@@ -108,7 +108,7 @@
                 <!--Add listing-->
                 <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="addListingModalLabel">Add Listing</h5>
@@ -119,7 +119,7 @@
                             <div class="modal-body">
                 
                                 <!-- Your form content goes here -->
-                                <form>
+                                <form class="modal-forms">
                                     <!-- Title -->
                                     <div class="form-group">
                                         <label for="title">Title *</label>
@@ -145,11 +145,11 @@
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" id="tags" name="tags">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                                <button class="btn btn-outline-secondary" type="button" id="addTagBtn" >+</button>
                                             </div>
                                         </div>
                                         <!-- Tags container -->
-                                        <div id="tags-container"></div>
+                                        <div id="tags-container" class="container col-md-12 row"></div>
                                     </div>
                 
                                     <!-- Image URLs -->
@@ -158,22 +158,23 @@
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" id="imageUrls" name="imageUrls">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                                <button class="btn btn-outline-secondary" type="button" id="addImgBtn">+</button>
                                             </div>
                                         </div>
                                         <!-- Image container -->
-                                        <div id="image-container"></div>
+                                        <div id="image-container" class="container col-md-12 row"></div>
                                     </div>
                 
                                     <!-- Submit button -->
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="mt-5">
+                                        <button id="addListingBtn" type="button" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    </div>
                                 </form>
                 
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import { getProfile } from "../auth/profile/profileService.js";
 import { changeLoginBtn } from "../ui/visibilityController.js";
 import { registerTrigger } from "../ui/buttonController.js";
 import { renderedListings } from "../listings/listingsRenderer.js";
+import {addListingsTrigger} from "../ui/buttonController.js";
 
 export function router() {
   const token = localStorage.getItem("token");
@@ -18,4 +19,5 @@ export function router() {
 
   changeLoginBtn();
   renderedListings();
+  addListingsTrigger();
 }

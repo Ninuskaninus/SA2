@@ -56,7 +56,6 @@ export function renderedListings() {
     cardText.appendChild(cardDeadline);
 
     const sortedBids = listing.bids.sort((a, b) => b.amount - a.amount);
-    console.log(sortedBids);
 
     const cardPrice = document.createElement("h4");
     cardPrice.classList.add("card-text", "text-light", "mb-4", "mt-4");

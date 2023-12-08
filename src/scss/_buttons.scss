@@ -14,8 +14,8 @@
   background-color: $primary;
   border-color: $purple;
   color: $white;
+      box-shadow: $box-shadow;
   &:hover {
-    box-shadow: $box-shadow;
     background-color: $gray-800;
     border-color: $gray-800;
   }
@@ -49,10 +49,11 @@
   border-radius: 0 41px 41px 0;
   border-color: $gray-800;
   margin: 0;
+      box-shadow: $box-shadow;
   &:hover {
     background-color: $gray-800;
     border-color: $gray-800;
-    box-shadow: $box-shadow;
+
   }
 }
 
@@ -81,4 +82,43 @@
   &:hover {
     color: $gray-400;
   }
+}
+
+.tag-element{
+  position: relative;
+  box-shadow: $box-shadow;
+  background-color: $gray-800;
+  text-align: center;
+  width: auto;
+}
+
+.remove-tag{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: $white;
+  box-shadow: $box-shadow;
+  outline: none !important;
+  border: none;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.4rem;
+  padding: 0;
+  z-index: 1;
+  &:hover {
+    color: $gray-400;
+  }
+  & p{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.img-element{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
 }
