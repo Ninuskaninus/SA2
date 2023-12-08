@@ -1,7 +1,6 @@
 import { login } from "../auth/login/loginService.js";
 import { register } from "../auth/register/registerService.js";
-import {addListing} from "../listings/addListingsService.js";
-import { addListingForm } from "../listings/listingsForm.js";
+import  {addListing } from "../listings/addListingsService.js";
 
 export function loginTrigger() {
   const loginButton = document.querySelector("#loginBtn");
@@ -85,9 +84,49 @@ export function registerTrigger() {
 
 
 export function addListingsTrigger() {
-const addListingBtn = document.querySelector("#addListingBtn");
+  const addListingBtn = document.querySelector("#addListingBtn");
+  const titleInput = document.querySelector("#title");
+  const descriptionInput = document.querySelector("#description");
+  const deadlineInput = document.querySelector("#deadline");
+
+  const errorTitle = document.querySelector("#errorTitle");
+  const errorDescription = document.querySelector("#errorDescription");
+  const errorDeadline = document.querySelector("#errorDeadline");
+
 addListingBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+  event.preventDefault();
+
+  if (titleInput.value === "") {
+    titleInput.classList.add("error");
+    errorTitle.classList.remove("d-none");
+  } else {
+    titleInput.classList.remove("error");
+    errorTitle.classList.add("d-none");
+  }
+
+  if (descriptionInput.value === "") {
+    descriptionInput.classList.add("error");
+    errorDescription.classList.remove("d-none");
+  } else {
+    descriptionInput.classList.remove("error");
+    errorDescription.classList.add("d-none");
+  }
+
+  if (deadlineInput.value === "") {
+    deadlineInput.classList.add("error");
+    errorDeadline.classList.remove("d-none");
+  } else {
+    deadlineInput.classList.remove("error");
+    errorDeadline.classList.add("d-none");
+  }
+
+  if (
+    !titleInput.classList.contains("error") &&
+    !descriptionInput.classList.contains("error") &&
+    !deadlineInput.classList.contains("error")
+  ) {
     addListing();
+    alert("Listing added!");
+  }
 });
 }

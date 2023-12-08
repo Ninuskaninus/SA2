@@ -57,3 +57,22 @@ export function changeLoginBtn() {
     });
   }
 }
+
+export function preventListing() {
+  const token = localStorage.getItem("token");
+  const addListingBtn = document.querySelectorAll(".sell-btn");
+  const loginTitle = document.querySelector("#loginModalLabel");
+  
+  if (!token) {
+    addListingBtn.forEach((btn) => {
+      btn.dataset.toggle = "modal";
+      btn.dataset.target = "#loginModal";
+      loginTitle.innerHTML = "You have to log in to sell items";
+    });
+  } else {
+    addListingBtn.forEach((btn) => {
+      btn.dataset.toggle = "modal";
+      btn.dataset.target = "#addListingModal";
+    });
+  }
+}

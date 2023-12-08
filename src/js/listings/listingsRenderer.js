@@ -3,6 +3,11 @@ const listings = await getListings();
 
 export function renderedListings() {
   const listingsContainer = document.getElementById("listingsContainer");
+    if (!listingsContainer) {
+    console.error("Listings container not found");
+    return;
+  }
+  
   const sortedListing = listings
     .filter(
       (listing) => listing.title && listing.title.toLowerCase() !== "test",
