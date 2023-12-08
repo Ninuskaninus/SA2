@@ -3,6 +3,7 @@ const listings = await getListings();
 
 export function renderedListings() {
   const listingsContainer = document.getElementById("listingsContainer");
+  listingsContainer.innerHTML = "";
     if (!listingsContainer) {
     console.error("Listings container not found");
     return;
@@ -17,8 +18,9 @@ export function renderedListings() {
   sortedListing.forEach((listing) => {
     createCards(listingsContainer, listing);
   });
+}
 
-  function createCards(container, listing) {
+export function createCards(container, listing) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("col-md-4", "mb-4");
     container.appendChild(cardContainer);
@@ -100,4 +102,3 @@ export function renderedListings() {
     const lowercasedUrl = url.toLowerCase();
     return imageExtensions.some((ext) => lowercasedUrl.endsWith(ext));
   }
-}
