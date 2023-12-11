@@ -44,7 +44,7 @@ export async function router() {
   searchRender(listings, searchInput, searchBtn, listingsContainer);
   filterRender(listings, listingsContainer);
 
-bidTrigger();
+  bidTrigger();
 
   // Get user profile information
   getProfile();
