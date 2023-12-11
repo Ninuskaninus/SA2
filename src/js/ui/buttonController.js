@@ -157,7 +157,6 @@ export function bidTrigger() {
     if (highestBid.length > 0 && bidAmount <= highestBid[0].amount) {
       bidError.classList.remove("d-none");
       bidInput.classList.add("error");
-      console.log("Bid must be higher than current highest bid");
     } else {
       bidError.classList.add("d-none");
       bidInput.classList.remove("error");

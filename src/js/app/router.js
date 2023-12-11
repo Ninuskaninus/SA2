@@ -15,37 +15,40 @@ import { bidTrigger } from "../ui/buttonController.js";
 
 export async function router() {
   const token = localStorage.getItem("token");
+  const path = window.location.pathname;
 
-  // Trigger UI actions
-  loginTrigger();
-  registerTrigger();
-  addListingsTrigger();
-  changeLoginBtn();
-  preventListing();
- 
+  if (path === "/index.html" || path === "/") {
+    loginTrigger();
+    registerTrigger();
+    addListingsTrigger();
+    changeLoginBtn();
+    preventListing();
 
-  // Fetch and render listings
-  const listings = await getListings();
-  renderedListings(listings);
+    const listings = await getListings();
+    renderedListings(listings);
 
-  preventBid();
+    preventBid();
 
+    if (token) {
+      topBar();
+    }
 
-  // If user is logged in, show the top bar
-  if (token) {
-    topBar();
+    const searchInput = document.querySelector('#search');
+    const searchBtn = document.querySelector('#searchBtn');
+    const listingsContainer = document.querySelector('#listingsContainer');
+
+    searchRender(listings, searchInput, searchBtn, listingsContainer);
+    filterRender(listings, listingsContainer);
+
+    bidTrigger();
+
+    getProfile();
+
+    console.log("Home page");
   }
 
-  // Render search and filter functionality
-  const searchInput = document.querySelector('#search');
-  const searchBtn = document.querySelector('#searchBtn');
-  const listingsContainer = document.querySelector('#listingsContainer');
-
-  searchRender(listings, searchInput, searchBtn, listingsContainer);
-  filterRender(listings, listingsContainer);
-
-  bidTrigger();
-
-  // Get user profile information
-  getProfile();
+  if (path.startsWith("/profile/")) {
+    console.log("Profile page");
+  }
 }
+
