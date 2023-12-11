@@ -1,6 +1,6 @@
-import { getListings } from "./listingsService.js";
-import { housingTags, electronicsTags, vehiclesTags } from "../utils/tags.js";
-import { createCards } from "./listingsRenderer.js";
+import { getListings } from "../listingsService.js";
+import { housingTags, electronicsTags, vehiclesTags } from "../../utils/tags.js";
+import { createCards } from "../listingsRenderer.js";
 
 export async function filterRender() {
     const listings = await getListings();

@@ -1,6 +1,10 @@
 import { login } from "../auth/login/loginService.js";
 import { register } from "../auth/register/registerService.js";
-import  {addListing } from "../listings/addListingsService.js";
+import { addListing } from "../listings/add-listing/addListingsService.js";
+import { addBid } from "../listings/bidding/bidService.js";
+import { getListings } from "../listings/listingsService.js";
+
+const listings = await getListings();
 
 export function loginTrigger() {
   const loginButton = document.querySelector("#loginBtn");
@@ -129,4 +133,38 @@ addListingBtn.addEventListener("click", (event) => {
     alert("Listing added!");
   }
 });
+}
+
+
+
+export function bidTrigger(thisListing) {
+  const makeBidBtn = document.querySelector("#makeBid");
+  
+
+  makeBidBtn.addEventListener("click", async (e) => {
+    const bidModal = document.querySelector(".modal-content");
+    const listingID = bidModal.id;
+    const thisListing = listings.find((listing) => listing.id === listingID);
+    const bids = thisListing.bids;
+    const highestBid = bids.sort((a, b) => b.amount - a.amount);
+   
+    const bidError = document.querySelector("#bidError");
+    const bidInput = document.querySelector("#bidAmount");
+    const bidAmount = parseFloat(bidInput.value);
+
+if (bids.length > 0) {
+  if (!Number.isNaN(bidAmount) && highestBid[0].amount >= bidAmount) {
+    bidError.classList.remove("d-none");
+    bidInput.classList.add("error");
+      } else {
+        e.preventDefault();
+    addBid();
+    bidError.classList.add("d-none");
+        bidInput.classList.remove("error");
+        alert("Bid added!");
+      }
+    }
+
+  });
+
 }
