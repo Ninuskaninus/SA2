@@ -42,40 +42,32 @@
     </div>
 </nav>
     <main>
-        <!--HERO SECTION-->
             <div class="hero bg-primary text-white text-center py-5">
                 <h1 class="display-4 font-weight-bold">Auction House</h1>
                 <p class="lead font-weight-bold">Buy and sell items</p>
                 <button class="btn btn-primary btn-lg sell-btn" data-toggle="modal" data-target="#addListingModal">Get Started</button>
                 <div class="hero-filter"></div>
             </div>
-            <!-- Container with Cards -->
             <div class="container mt-5">
                 <div class="row" >
-            
-                    <!-- Card 1 -->
                     <div class="col-md-4 mb-4">
-                        <div class="card">
+                        <div class="card" id="housing">
                             <div class="card-body text-center">
                                 <i class="fas fa-icon-name fa-3x mb-3"></i>
                                 <p class="card-text">Housing</p>
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Card 2 -->
                     <div class="col-md-4 mb-4">
-                        <div class="card">
+                        <div class="card" id="electronics">
                             <div class="card-body text-center">
                                 <i class="fas fa-icon-name fa-3x mb-3"></i>
                                 <p class="card-text">Electronics</p>
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Card 3 -->
                     <div class="col-md-4 mb-4">
-                        <div class="card">
+                        <div class="card" id="vehicles">
                             <div class="card-body text-center">
                                 <i class="fas fa-icon-name fa-3x mb-3"></i>
                                 <p class="card-text">Vehicles</p>
@@ -87,13 +79,12 @@
             </div>
             <div class="container mt-5">
                 <div class="row justify-content-center">
-            
                     <div class="col-md-12">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
+                            <input type="text" class="form-control" id="search" placeholder="Search..." aria-label="Search"
                                 aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button"><img src="/src/assets/search.png"
+                                <button id="searchBtn" class="btn btn-outline-secondary" type="button"><img src="/src/assets/search.png"
                                         alt=""></button>
                             </div>
                         </div>
@@ -104,6 +95,7 @@
             <!-- Container with Listings -->
 <div class="container mt-5">
     <div class="row" id="listingsContainer"></div>
+    <p id="messageContainer"></p>
 </div>
                 <!--Add listing-->
                 <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
