@@ -25,7 +25,7 @@ export function addBid() {
         fetch(bid_url, postBid)
             .then((response) => response.json())
             .then((data) => {
-                console.log("Success:", data);
+                alert("Bid added!");
                 window.location.reload();
             })
             .catch((error) => {

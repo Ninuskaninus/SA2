@@ -137,34 +137,35 @@ addListingBtn.addEventListener("click", (event) => {
 
 
 
-export function bidTrigger(thisListing) {
+export function bidTrigger() {
   const makeBidBtn = document.querySelector("#makeBid");
-  
 
   makeBidBtn.addEventListener("click", async (e) => {
     const bidModal = document.querySelector(".modal-content");
     const listingID = bidModal.id;
+
+    // Make sure thisListing and bids are available
     const thisListing = listings.find((listing) => listing.id === listingID);
     const bids = thisListing.bids;
+    
     const highestBid = bids.sort((a, b) => b.amount - a.amount);
-   
+
     const bidError = document.querySelector("#bidError");
     const bidInput = document.querySelector("#bidAmount");
     const bidAmount = parseFloat(bidInput.value);
 
-if (bids.length > 0) {
-  if (!Number.isNaN(bidAmount) && highestBid[0].amount >= bidAmount) {
-    bidError.classList.remove("d-none");
-    bidInput.classList.add("error");
-      } else {
-        e.preventDefault();
-    addBid();
-    bidError.classList.add("d-none");
-        bidInput.classList.remove("error");
-        alert("Bid added!");
-      }
+    if (highestBid.length > 0 && bidAmount <= highestBid[0].amount) {
+      bidError.classList.remove("d-none");
+      bidInput.classList.add("error");
+      console.log("Bid must be higher than current highest bid");
+    } else {
+      bidError.classList.add("d-none");
+      bidInput.classList.remove("error");
+
+      e.preventDefault();
+      addBid(listingID, bidAmount, highestBid, bidError, bidInput);
     }
-
   });
-
 }
+
+
