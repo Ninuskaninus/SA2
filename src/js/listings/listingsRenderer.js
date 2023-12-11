@@ -24,6 +24,7 @@ export function createCards(container, listing) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("col-md-4", "mb-4");
     container.appendChild(cardContainer);
+  
 
     const card = document.createElement("div");
     card.classList.add("card", "h-100", "d-flex", "flex-column");
@@ -92,13 +93,19 @@ export function createCards(container, listing) {
     cardFooter.appendChild(seeMore);
 
     const bidBtn = document.createElement("button");
-    bidBtn.classList.add("btn", "btn-success", "ml-2");
+    bidBtn.classList.add("btn", "btn-success", "ml-2", "bid-btn");
+    bidBtn.id = listing.id;
     bidBtn.textContent = "Bid on this";
-    cardFooter.appendChild(bidBtn);
+    bidBtn.dataset.toggle = "modal";
+    bidBtn.dataset.target = "#bidModal";
+  cardFooter.appendChild(bidBtn);
+  
   }
 
-  function isValidImageUrl(url) {
+    function isValidImageUrl(url) {
     const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"];
     const lowercasedUrl = url.toLowerCase();
     return imageExtensions.some((ext) => lowercasedUrl.endsWith(ext));
-  }
+}
+  
+

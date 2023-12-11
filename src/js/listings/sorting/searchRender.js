@@ -1,6 +1,6 @@
-import { getListings } from '../listings/listingsService.js';
-import { createCards } from '../listings/listingsRenderer.js';
-import { renderedListings } from '../listings/listingsRenderer.js';
+
+import { createCards } from '../listingsRenderer.js';
+
 
 export async function searchRender(listings, searchInput, searchBtn, listingsContainer) {
   searchBtn.addEventListener('click', () => {

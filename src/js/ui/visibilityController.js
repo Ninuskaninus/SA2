@@ -1,5 +1,8 @@
 import { getProfile } from "../auth/profile/profileService.js";
 import { logout } from "../auth/login/logout.js";
+import { getListings } from "../listings/listingsService.js";
+import { bidRender } from "../listings/bidding/bidRender.js";
+
 const myProfile = await getProfile();
 
 export function topBar() {
@@ -26,11 +29,13 @@ export function topBar() {
 
 export function changeLoginBtn() {
   const token = localStorage.getItem("token");
+  const loginTitle = document.querySelector("#loginModalLabel");
 
   const loginBtns = document.querySelectorAll(".login-btn");
   if (!token) {
     loginBtns.forEach((btn) => {
       btn.innerHTML = "Login";
+      loginTitle.innerHTML = "Login";
     });
   } else {
     loginBtns.forEach((btn) => {
@@ -74,5 +79,26 @@ export function preventListing() {
       btn.dataset.toggle = "modal";
       btn.dataset.target = "#addListingModal";
     });
+  }
+}
+
+export async function preventBid() {
+  const token = localStorage.getItem("token");
+  const bidBtns = document.querySelectorAll(".bid-btn");
+  const loginTitle = document.querySelector("#loginModalLabel");
+
+  if (!token) {
+    bidBtns.forEach((btn) => {
+      btn.dataset.toggle = "modal";
+      btn.dataset.target = "#loginModal";
+      loginTitle.innerHTML = "You have to log in to bid on items";
+    });
+  } else {
+    bidBtns.forEach((btn) => {
+      btn.dataset.toggle = "modal";
+      btn.dataset.target = "#bidModal";
+    });
+
+    bidRender();
   }
 }

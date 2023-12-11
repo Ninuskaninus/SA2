@@ -6,9 +6,12 @@ import { registerTrigger } from "../ui/buttonController.js";
 import { renderedListings } from "../listings/listingsRenderer.js";
 import { addListingsTrigger } from "../ui/buttonController.js";
 import { preventListing } from "../ui/visibilityController.js";
-import { searchRender } from "../listings/searchRender.js";
-import {filterRender} from "../listings/filterRender.js";
+import { searchRender } from "../listings/sorting/searchRender.js";
+import {filterRender} from "../listings/sorting/filterRender.js";
 import { getListings } from "../listings/listingsService.js"; 
+import { preventBid } from "../ui/visibilityController.js";
+import { bidTrigger } from "../ui/buttonController.js";
+
 
 export async function router() {
   const token = localStorage.getItem("token");
@@ -19,10 +22,14 @@ export async function router() {
   addListingsTrigger();
   changeLoginBtn();
   preventListing();
+ 
 
   // Fetch and render listings
   const listings = await getListings();
   renderedListings(listings);
+
+  preventBid();
+
 
   // If user is logged in, show the top bar
   if (token) {
@@ -36,6 +43,8 @@ export async function router() {
 
   searchRender(listings, searchInput, searchBtn, listingsContainer);
   filterRender(listings, listingsContainer);
+
+bidTrigger();
 
   // Get user profile information
   getProfile();
