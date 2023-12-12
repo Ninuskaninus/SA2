@@ -14,26 +14,27 @@
   cursor: pointer;
 }
 
-.card-img-top{
+.card-img-top {
   min-height: 300px;
+  max-height: 300px;
   object-fit: cover;
   object-position: center;
 }
 
-.profile-card-img{
+.profile-card-img {
   max-height: 150px;
 }
 
-.listing-card{
+.listing-card {
   position: relative;
 }
 
-.listing-body{
+.listing-body {
   min-height: 300px;
 }
 
 @media screen and (max-width: 768px) {
-  .listing-body{
+  .listing-body {
     min-height: 150px;
   }
 }

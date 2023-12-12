@@ -40,29 +40,3 @@ export async function getProfile() {
     throw error;
   }
 }
-
-export async function getProfileListings() {
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    return null;
-  }
-
-  try {
-    const response = await fetch(url_listings, {
-      headers: {
-        method: "GET",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const json = await response.json();
-    console.log(json);
-
-    return json;
-  } catch (error) {
-    console.error("Error fetching listings");
-    throw error;
-  }
-}
