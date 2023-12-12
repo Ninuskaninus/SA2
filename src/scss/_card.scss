@@ -19,3 +19,15 @@
   object-fit: cover;
   object-position: center;
 }
+
+.profile-card-img{
+  max-height: 150px;
+}
+
+.listing-card{
+  position: relative;
+}
+
+.listing-body{
+  min-height: 300px;
+}

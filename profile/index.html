@@ -51,108 +51,131 @@
         </div>
     </nav>
     <main>
-        <div class="container mt-5">
-            <!-- User Info Section -->
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="path/to/avatar.jpg" alt="Avatar" class="img-fluid rounded-circle" style="max-width: 100%;">
-                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#avatarModal">
-                        Change Avatar
-                    </button>
-                </div>
-                <div class="col-md-8">
-                    <h2>Username</h2>
-                </div>
+        <div class="hero bg-primary text-white text-center py-5">
+            <div class="w-100 row justify-content-center hero-content">
+                <div class="col-md-8 text-center">
+                    <img id="userAvatar" src="" alt="Profile Picture" class="img-fluid rounded-circle mb-3"
+                        style="width: 150px; height: 150px;">
+                    <h2 class="mb-3" id="userName">Username</h2>
+                    <button class="btn btn-secondary mb-4" data-toggle="modal" data-target="#avatarModal">Change Avatar</button>
+    <div class="d-flex align-items-center justify-content-center">
+        <p class="mb-0"><img  src="/src/assets/credit.png" alt=""> <span id= "userCredit"> 100</span></p>
+        <p class="mb-0 ms-4"><img  src="/src/assets/crown.png" alt=""><span id="userWins">  10</span></p>
+    </div>
+        </div>
             </div>
-        
-            <!-- Winning Bids Section -->
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <h3>Winning Bids</h3>
-                    <ul class="list-group">
-                        <!-- List of Winning Bids -->
-                        <li class="list-group-item">Item 1</li>
-                        <li class="list-group-item">Item 2</li>
-                        <!-- Add more items as needed -->
-                    </ul>
+            <div class="hero-filter"></div>
+        </div>
+
+
+<div class="container mt-5">
+    <h1 class="mb-3">My listings</h1>
+    <div class="row" id="userListingsContainer"></div>
+</div>
+<div class="container mt-5">
+    <h1>Latest bids</h1>
+    <div class="row" id="bidsList"></div>
+</div>
+
+                <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addListingModalLabel">Add Listing</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="modal-forms">
+                                    <div class="form-group">
+                                        <label for="title">Title *</label>
+                                        <input type="text" class="form-control" id="title" name="title" required>
+                                        <small id="errorTitle" class="text-danger pb-2 d-none">Listing needs a title</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description *</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                                        <small id="errorDescription" class="text-danger pb-2 d-none">Listing needs a description</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deadline">Deadline *</label>
+                                        <input type="datetime-local" class="form-control" id="deadline" name="deadline" required>
+                                        <small id="errorDeadline" class="text-danger pb-2 d-none">Listing needs a deadline</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tags">Tags</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="tags" name="tags">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="addTagBtn">+</button>
+                                            </div>
+                                        </div>
+                                        <div id="tags-container" class="container col-md-12 row"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageUrls">Image URLs</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="imageUrls" name="imageUrls">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="addImgBtn">+</button>
+                                            </div>
+                                        </div>
+                                        <div id="image-container" class="container col-md-12 row"></div>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button id="addListingBtn" type="button" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+                                    </div>
+                                </form>
+                
+                            </div>
+                
+                        </div>
+                    </div>
                 </div>
-        
-                <!-- Current Bids Section -->
-                <div class="col-md-6">
-                    <h3>Current Bids</h3>
-                    <ul class="list-group">
-                        <!-- List of Current Bids -->
-                        <li class="list-group-item">Item 3</li>
-                        <li class="list-group-item">Item 4</li>
-                        <!-- Add more items as needed -->
-                    </ul>
-                </div>
+<div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="avatarModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog vh-100 d-flex align-items-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="avatarModalLabel">Change Avatar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        
-            <!-- User Listings Section -->
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <h3>User Listings</h3>
-                    <ul class="list-group">
-                        <!-- List of User Listings -->
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Item 5
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                Delete
-                            </button>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Item 6
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                Delete
-                            </button>
-                        </li>
-                        <!-- Add more items as needed -->
-                    </ul>
-                </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <!-- Display the current avatar -->
+                <img id="currentAvatar" src="" alt="Current Avatar" class="img-fluid rounded-circle mb-3"
+                    style="width: 100px; height: 100px;">
+
+                <!-- Avatar URL Form -->
+                <form class="w-100">
+                    <div class="form-group">
+                        <label for="avatarUrl">New Avatar URL</label>
+                        <input type="text" class="form-control" id="avatarUrl" name="avatarUrl">
+                        <small id="errorAvatar1" class="text-danger d-none mt-1">You already have this avatar!</small>
+                        <small id="errorAvatar2" class="text-danger d-none">Please enter a valid URL</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="changeAvatarBtn" class="btn btn-primary">Submit</button>
             </div>
         </div>
-        
-        <!-- Avatar Modal -->
-        <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="avatarModalLabel">Change Avatar</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Add form or input for changing avatar -->
-                        <p>Avatar Upload Form Goes Here</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Are You Sure?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>This action cannot be undone. Are you sure you want to delete this item?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+</div>
+
     </main>
-    <script type="module" src="/src/js/app/main.js" defer></script>
+<footer class="footer bg-dark text-light text-center py-3">
+    <div class="container">
+        <p>&copy; 2023 BidCraft</p>
+    </div>
+</footer>
+    <script type="module" src="/src/js/app/profileRouter.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

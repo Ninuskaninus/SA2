@@ -38,7 +38,10 @@ nav {
   position: relative;
   & h1,
   p,
-  button {
+  button, 
+  h2, 
+  img,
+  .hero-content {
     z-index: 2;
   }
 }
