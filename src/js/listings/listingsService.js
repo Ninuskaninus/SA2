@@ -28,13 +28,13 @@ export async function getListings() {
             bids: getBids,
             created: listings.created,
             description: listings.description,
-            endsAt: listings.endsAt,
+            endsAt: formatDateTime(listings.endsAt),
             id: listings.id,
             media: listings.media,
             seller: getSeller,
             tags: listings.tags,
             title: listings.title,
-            updated: listings.updated,
+            updated: formatDateTime(listings.updated),
             _count: listings._count,
           };
           return getListings;
@@ -59,5 +59,5 @@ function formatDateTime(dateTimeString) {
   const formattedDate = new Intl.DateTimeFormat("no-NO", options).format(
     new Date(dateTimeString),
   );
-  return formattedDate.replace(",", ""); // Remove the comma between date and time
+  return formattedDate.replace(",", "");
 }

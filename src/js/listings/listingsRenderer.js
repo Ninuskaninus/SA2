@@ -56,7 +56,7 @@ export function createCards(container, listing) {
 
     const cardText = document.createElement("small");
     cardText.classList.add("card-text", "flex-grow-1");
-    cardText.textContent = "Deadline:";
+    cardText.textContent = "Deadline: ";
     cardBody.appendChild(cardText);
 
     const cardDeadline = document.createElement("span");
@@ -89,7 +89,7 @@ export function createCards(container, listing) {
     const seeMore = document.createElement("a");
     seeMore.classList.add("btn-link");
     seeMore.textContent = "See more";
-    seeMore.href = "#";
+    seeMore.href = "/preview/index.html?id=" + listing.id;
     cardFooter.appendChild(seeMore);
 
     const bidBtn = document.createElement("button");
