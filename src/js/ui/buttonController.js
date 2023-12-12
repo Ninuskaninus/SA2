@@ -135,8 +135,6 @@ addListingBtn.addEventListener("click", (event) => {
 });
 }
 
-
-
 export function bidTrigger() {
   const makeBidBtn = document.querySelector("#makeBid");
 
@@ -144,7 +142,6 @@ export function bidTrigger() {
     const bidModal = document.querySelector(".modal-content");
     const listingID = bidModal.id;
 
-    // Make sure thisListing and bids are available
     const thisListing = listings.find((listing) => listing.id === listingID);
     const bids = thisListing.bids;
     

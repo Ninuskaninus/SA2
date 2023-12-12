@@ -21,7 +21,7 @@ export async function login() {
       if (response.status === 200) {
         localStorage.setItem("token", json.accessToken);
         localStorage.setItem("username", json.name);
-        window.location.href = "index.html";
+        window.location.reload();
       } else {
         console.log(response.status);
       }

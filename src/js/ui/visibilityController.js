@@ -101,4 +101,6 @@ export async function preventBid() {
 
     bidRender();
   }
+
+
 }

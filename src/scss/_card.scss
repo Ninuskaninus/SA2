@@ -31,3 +31,9 @@
 .listing-body{
   min-height: 300px;
 }
+
+@media screen and (max-width: 768px) {
+  .listing-body{
+    min-height: 150px;
+  }
+}

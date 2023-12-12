@@ -3,6 +3,7 @@ export function addBid() {
     const listingID = modalContainer.id;
     const base_url = "https://api.noroff.dev/api/v1/auction/listings/";
     const bid_url = base_url + listingID + "/bids";
+
     const token = localStorage.getItem("token");
 
     const bidAmountString = document.querySelector("#bidAmount").value;
@@ -35,3 +36,5 @@ export function addBid() {
         console.error("Invalid bid amount. Please enter a valid number.");
     }
 }
+
+

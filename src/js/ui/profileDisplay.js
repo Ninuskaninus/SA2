@@ -1,11 +1,11 @@
-import { getProfile } from "./profileService.js";
-import { getListings } from "../../listings/listingsService.js";
-import { deleteListing } from "./deleteListingService.js";
-import {changeAvatar} from "./changeAvatarService.js";
+import { getProfile } from "../auth/profile/profileService.js";
+import { getListings } from "../listings/listingsService.js";
+import { deleteListing } from "../auth/profile/deleteListingService.js";
+import {changeAvatar} from "../auth/profile/changeAvatarService.js";
 
 const myProfile = await getProfile();
 const listings = await getListings();
-const username = myProfile.username;
+const username = localStorage.getItem("username");
 const myListings = myProfile.allListings;
 
 const myBids = listings.filter(listing =>
@@ -196,7 +196,7 @@ bidContainer.classList.add("mb-4", "row");
 bidListContainer.appendChild(bidContainer);
 
 const bidCard = document.createElement("div");
-bidCard.classList.add("card", "col-md-8", "w-100"); // Adjust the column width as needed
+bidCard.classList.add("card", "col-md-8", "w-100"); 
 bidCard.id = listing.id;
 bidContainer.appendChild(bidCard);
 
@@ -205,7 +205,7 @@ bidBody.classList.add("card-body", "row");
 bidCard.appendChild(bidBody);
 
 const bidContent = document.createElement("div");
-bidContent.classList.add("col-md-8"); // Adjust the column width as needed
+bidContent.classList.add("col-md-8");
 bidBody.appendChild(bidContent);
 
 const bidTitle = document.createElement("h5");
@@ -217,12 +217,15 @@ const bidPrice = document.createElement("p");
 bidPrice.classList.add("card-text", "m-0");
 const highestBid = listing.bids;
 highestBid.sort((a, b) => b.amount - a.amount);
-bidPrice.innerText = highestBid.length > 0 ? highestBid[0].amount + " Credits" : "0 Credits";
+    bidPrice.innerText = highestBid.length > 0 ? highestBid[0].amount + " Credits" : "0 Credits";
 bidContent.appendChild(bidPrice);
 
 const bidUsername = document.createElement("small");
 bidUsername.classList.add("card-text");
-bidUsername.innerText = highestBid[0].bidderName;
+    bidUsername.innerText = highestBid[0].bidderName;
+    if (highestBid[0].bidderName !== username) {
+      bidUsername.style.color = "red";
+    }
 bidContent.appendChild(bidUsername);
 
 const bidBtnContainer = document.createElement("div");
@@ -231,7 +234,8 @@ bidBody.appendChild(bidBtnContainer);
 
 const bidBtn = document.createElement("a");
 bidBtn.classList.add("btn", "btn-primary", "view-listing-btn");
-bidBtn.innerText = "View listing";
+    bidBtn.innerText = "View listing";
+    bidBtn.href = `/preview/index.html?id=${listing.id}`;
 bidBtnContainer.appendChild(bidBtn);
 
   });
