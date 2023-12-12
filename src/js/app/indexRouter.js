@@ -12,14 +12,14 @@ import { getListings } from "../listings/listingsService.js";
 import { preventBid } from "../ui/visibilityController.js";
 import { bidTrigger } from "../ui/buttonController.js";
 
-
-export async function router() {
   const token = localStorage.getItem("token");
-  const path = window.location.pathname;
 
-  if (path === "/index.html" || path === "/") {
     loginTrigger();
     registerTrigger();
+
+    const listingModal = document.querySelector("#listingModal");
+    if (listingModal){}
+
     addListingsTrigger();
     changeLoginBtn();
     preventListing();
@@ -44,11 +44,9 @@ export async function router() {
 
     getProfile();
 
-    console.log("Home page");
-  }
+   
+  
 
-  if (path.startsWith("/profile/")) {
-    console.log("Profile page");
-  }
-}
+
+
 
