@@ -1,7 +1,7 @@
 import { getProfile } from "../auth/profile/profileService.js";
 import { logout } from "../auth/login/logout.js";
 import { getListings } from "../listings/listingsService.js";
-import { bidRender } from "../listings/bidding/bidRender.js";
+import { bidRender } from "../listings/bidding/bidDisplay.js";
 
 const myProfile = await getProfile();
 

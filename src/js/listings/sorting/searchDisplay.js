@@ -1,4 +1,4 @@
-import { createCards } from "../listingsRenderer.js";
+import { createCards } from "../listingsDisplay.js";
 
 export async function searchRender(
   listings,

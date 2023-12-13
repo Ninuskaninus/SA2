@@ -115,7 +115,12 @@ function bidDisplay() {
 
 function sellerDisplay() {
   const sellerAvatar = document.querySelector("#sellerAvatar");
-  sellerAvatar.src = thisListing.seller.avatar;
+  if (thisListing.seller.avatar === "" || !thisListing.seller.avatar || thisListing.seller.avatar === undefined) {
+    sellerAvatar.src =
+      "https://mf.no/themes/custom/mf/images/avatar-mf-placeholder-215.png";
+  } else {
+    sellerAvatar.src = thisListing.seller.avatar;
+    }
 
   const sellerUsername = document.querySelector("#sellerUsername");
   sellerUsername.textContent = thisListing.seller.name;

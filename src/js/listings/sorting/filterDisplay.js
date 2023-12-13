@@ -4,7 +4,7 @@ import {
   electronicsTags,
   vehiclesTags,
 } from "../../utils/tags.js";
-import { createCards } from "../listingsRenderer.js";
+import { createCards } from "../listingsDisplay.js";
 
 export async function filterRender() {
   const listings = await getListings();

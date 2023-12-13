@@ -251,8 +251,20 @@ function myBidsDisplay() {
       bidTitle.innerText = listing.title;
       bidContent.appendChild(bidTitle);
 
+      const bidDeadline = document.createElement("small");
+      bidDeadline.classList.add("card-text");
+      const deadline = listing.endsAt;
+      const now = new Date();
+      if (deadline < now) {
+        bidDeadline.innerText = "Ended";
+        bidDeadline.style.color = "#FF8080";
+      } else {
+        bidDeadline.innerText = "Ends: " + listing.endsAt;
+      }
+      bidContent.appendChild(bidDeadline);
+
       const bidPrice = document.createElement("p");
-      bidPrice.classList.add("card-text", "m-0");
+      bidPrice.classList.add("card-text", "m-0", "mt-2");
       const highestBid = listing.bids;
       highestBid.sort((a, b) => b.amount - a.amount);
       bidPrice.innerText =
