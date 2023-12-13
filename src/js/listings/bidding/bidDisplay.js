@@ -29,7 +29,8 @@ async function listingInfoDisplay(listingId) {
   highestBid.sort((a, b) => b.amount - a.amount);
 
   const bidPrice = document.querySelector("#bidPrice");
-  bidPrice.innerText = highestBid.length > 0 ? highestBid[0].amount + " Credits" : "0 Credits";
+  bidPrice.innerText =
+    highestBid.length > 0 ? highestBid[0].amount + " Credits" : "0 Credits";
 
   const modalBody = document.querySelector(".modal-content");
   modalBody.id = thisListing.id;

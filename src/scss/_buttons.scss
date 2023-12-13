@@ -14,7 +14,7 @@
   background-color: $primary;
   border-color: $purple;
   color: $white;
-      box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
   &:hover {
     background-color: $gray-800;
     border-color: $gray-800;
@@ -49,11 +49,10 @@
   border-radius: 0 41px 41px 0;
   border-color: $gray-800;
   margin: 0;
-      box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
   &:hover {
     background-color: $gray-800;
     border-color: $gray-800;
-
   }
 }
 
@@ -84,7 +83,7 @@
   }
 }
 
-.tag-element{
+.tag-element {
   position: relative;
   box-shadow: $box-shadow;
   background-color: $gray-800;
@@ -92,7 +91,7 @@
   width: auto;
 }
 
-.remove-tag{
+.remove-tag {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -109,13 +108,13 @@
   &:hover {
     color: $gray-400;
   }
-  & p{
+  & p {
     margin: 0;
     padding: 0;
   }
 }
 
-.img-element{
+.img-element {
   position: relative;
   width: 50px;
   height: 50px;
@@ -123,6 +122,6 @@
   background-position: center;
 }
 
-.view-listing-btn{
+.view-listing-btn {
   max-height: 40px;
 }

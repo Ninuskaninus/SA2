@@ -11,11 +11,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss/main.scss dist/css/style.css",
     "watch": "sass --watch src/scss/main.scss dist/css/style.css",
-    "lint": "eslint src/js/*.js",
-    "prettier": "prettier --write 'src/**/*.{js,html,css,scss}'",
+    "lint": "eslint \"**/*.{js,html,css,scss}\"",
+    "prettier": "prettier --write \"**/*.{js,html,css,scss}\"",
     "format": "npm run prettier && npm run lint",
     "webpack": "webpack-dev-server --open",
-    "start": "npm run build && npm run watch && npm run prettier"
+    "start": "npm run build && npm run watch"
   },
   "author": "Nina Amdal",
   "license": "ISC",
@@ -26,5 +26,11 @@
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "files.associations": {
+    "*.html": "html",
+    "*.scss": "scss",
+    "*.css": "css",
+    "*.js": "javascript"
   }
 }

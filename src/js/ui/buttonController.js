@@ -11,17 +11,46 @@ export function loginTrigger() {
   const emailInput = document.querySelector("#loginEmail");
   const passwordInput = document.querySelector("#loginPassword");
 
-  loginButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    if (emailInput.value.length > 0 && passwordInput.value.length > 0) {
-      login();
-      console.log("Logged in!");
-    } else {
-      emailInput.classList.add("error");
-      passwordInput.classList.add("error");
-      console.log("Please fill in all fields");
+  const errorEmail = document.querySelector("#errorEmail");
+  const errorPassword = document.querySelector("#passwordError");
+
+loginButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  if (emailInput.value === "") {
+    emailInput.classList.add("error");
+    errorEmail.classList.remove("d-none");
+  } else {
+    emailInput.classList.remove("error");
+    errorEmail.classList.add("d-none");
+  }
+  if (passwordInput.value === "") {
+    passwordInput.classList.add("error");
+    errorPassword.classList.remove("d-none");
+  } else {
+    passwordInput.classList.remove("error");
+    errorPassword.classList.add("d-none");
+  }
+
+  if (!emailInput.classList.contains("error") && !passwordInput.classList.contains("error")) {
+    try {
+      const status = await login();
+
+      if (status === 401) {
+        alert("Wrong email or password");
+      }
+      if (status === 500) {
+        alert("Server error");
+      }
+      if (status === 400) {
+        alert("User doesn't exist");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
-  });
+  }
+});
+
 }
 
 export function registerTrigger() {
@@ -86,7 +115,6 @@ export function registerTrigger() {
   });
 }
 
-
 export function addListingsTrigger() {
   const addListingBtn = document.querySelector("#addListingBtn");
   const titleInput = document.querySelector("#title");
@@ -97,42 +125,42 @@ export function addListingsTrigger() {
   const errorDescription = document.querySelector("#errorDescription");
   const errorDeadline = document.querySelector("#errorDeadline");
 
-addListingBtn.addEventListener("click", (event) => {
-  event.preventDefault();
+  addListingBtn.addEventListener("click", (event) => {
+    event.preventDefault();
 
-  if (titleInput.value === "") {
-    titleInput.classList.add("error");
-    errorTitle.classList.remove("d-none");
-  } else {
-    titleInput.classList.remove("error");
-    errorTitle.classList.add("d-none");
-  }
+    if (titleInput.value === "") {
+      titleInput.classList.add("error");
+      errorTitle.classList.remove("d-none");
+    } else {
+      titleInput.classList.remove("error");
+      errorTitle.classList.add("d-none");
+    }
 
-  if (descriptionInput.value === "") {
-    descriptionInput.classList.add("error");
-    errorDescription.classList.remove("d-none");
-  } else {
-    descriptionInput.classList.remove("error");
-    errorDescription.classList.add("d-none");
-  }
+    if (descriptionInput.value === "") {
+      descriptionInput.classList.add("error");
+      errorDescription.classList.remove("d-none");
+    } else {
+      descriptionInput.classList.remove("error");
+      errorDescription.classList.add("d-none");
+    }
 
-  if (deadlineInput.value === "") {
-    deadlineInput.classList.add("error");
-    errorDeadline.classList.remove("d-none");
-  } else {
-    deadlineInput.classList.remove("error");
-    errorDeadline.classList.add("d-none");
-  }
+    if (deadlineInput.value === "") {
+      deadlineInput.classList.add("error");
+      errorDeadline.classList.remove("d-none");
+    } else {
+      deadlineInput.classList.remove("error");
+      errorDeadline.classList.add("d-none");
+    }
 
-  if (
-    !titleInput.classList.contains("error") &&
-    !descriptionInput.classList.contains("error") &&
-    !deadlineInput.classList.contains("error")
-  ) {
-    addListing();
-    alert("Listing added!");
-  }
-});
+    if (
+      !titleInput.classList.contains("error") &&
+      !descriptionInput.classList.contains("error") &&
+      !deadlineInput.classList.contains("error")
+    ) {
+      addListing();
+      alert("Listing added!");
+    }
+  });
 }
 
 export function bidTrigger() {
@@ -144,7 +172,7 @@ export function bidTrigger() {
 
     const thisListing = listings.find((listing) => listing.id === listingID);
     const bids = thisListing.bids;
-    
+
     const highestBid = bids.sort((a, b) => b.amount - a.amount);
 
     const bidError = document.querySelector("#bidError");
@@ -163,5 +191,3 @@ export function bidTrigger() {
     }
   });
 }
-
-
