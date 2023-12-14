@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/859a09ef-1f2f-4f72-b7f7-0ed0974313c8/deploy-status)](https://app.netlify.com/sites/flourishing-mandazi-bd04b0/deploys)
+
 
 # Auction Website Project
 
@@ -73,4 +73,4 @@ The Product Owner has requested the following links:
 - [Style Guide]https://www.figma.com/file/WvH2NyMSLPH3PCcWHgI9hN/Semester-assigment-2---Style-guide?type=design&node-id=0%3A1&mode=design&t=xsxtEzNDVUbhoQXH-1.
 - [Kanban Project Board]https://www.figma.com/file/WvH2NyMSLPH3PCcWHgI9hN/Semester-assigment-2---Style-guide?type=design&node-id=0%3A1&mode=design&t=xsxtEzNDVUbhoQXH-1.
 - [Repository Link]https://github.com/Ninuskaninus/SA2/tree/semester-assigment.
-- [Hosted Application Demo Link]https://flourishing-mandazi-bd04b0.netlify.app/.
+- [Hosted Application Demo Link]https://tubular-salmiakki-a0ca6b.netlify.app/
