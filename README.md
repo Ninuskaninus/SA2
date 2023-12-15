@@ -1,5 +1,3 @@
-
-
 # Auction Website Project
 
 ## Goal
@@ -37,8 +35,6 @@ The company CTO has established the following technical restrictions:
 - Must use an approved design application.
 - Must use an approved planning application.
 
-## Resources
-
 ### Approved CSS Frameworks
 
 This is the framework used in this assigment:
@@ -63,6 +59,10 @@ Planning was done with:
 
 - Trello - Trello board
 - Excel - Gantt chart
+
+### Special thanks
+
+A special thanks to my wonderfull peers, for always helping, giving advice, providing feedback, making sure everyone keeps their head over the water and giving support troughout this semester assigment. Whenever I got stuck, someone always offered a hand and a solution.
 
 ## Required Links
 
