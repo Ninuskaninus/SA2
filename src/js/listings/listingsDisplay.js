@@ -9,15 +9,16 @@ export function renderedListings() {
     return;
   }
 
-  const sortedListing = listings
-    .filter(
-      (listing) => listing.title && listing.title.toLowerCase() !== "test",
-    )
-    .sort((a, b) => new Date(b.updated) - new Date(a.updated));
+const excludedTitles = ["test", "hei", "heihei", "123", "ffedef", "hello", "hsuwhduiw", "heycrsiente", "jdwwd", "heiii", "hfdhsh",  "ggggg" , "crgoat"];
 
-  sortedListing.forEach((listing) => {
-    createCards(listingsContainer, listing);
-  });
+const sortedListing = listings
+  .filter((listing) => listing.title && !excludedTitles.includes(listing.title.toLowerCase()))
+  .sort((a, b) => new Date(b.updated) - new Date(a.updated));
+
+sortedListing.forEach((listing) => {
+  createCards(listingsContainer, listing);
+});
+
 }
 
 
