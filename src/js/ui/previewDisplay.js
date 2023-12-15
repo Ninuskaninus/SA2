@@ -72,6 +72,15 @@ function bidDisplay() {
   const bidBtn = document.querySelector(".bid-btn");
   bidBtn.id = thisListing.id;
 
+  const seller = thisListing.seller.name;
+  const username = localStorage.getItem("username");
+
+  if (seller === username) {
+    bidBtn.classList.add("d-none");
+  } else {
+    bidBtn.classList.remove("d-none");
+  }
+
   const bids = thisListing.bids;
   const bidsContainer = document.querySelector("#bidsContainer");
   const bidTitle = document.createElement("h5");

@@ -100,7 +100,20 @@ export function createCards(container, listing) {
   bidBtn.dataset.toggle = "modal";
   bidBtn.dataset.target = "#bidModal";
   cardFooter.appendChild(bidBtn);
+
+  const username = localStorage.getItem("username");
+  const sellerName = listing.seller.name;
+
+  if (username === sellerName) {
+    bidBtn.classList.add("d-none");
+  } else {
+    bidBtn.classList.remove("d-none");
+  }
 }
+
+
+
+
 
 function isValidImageUrl(url) {
   const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"];
