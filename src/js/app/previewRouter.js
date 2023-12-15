@@ -9,6 +9,7 @@ import { changeLoginBtn } from "../ui/visibilityController.js";
 import { previewDisplay } from "../ui/previewDisplay.js";
 
 const token = localStorage.getItem("token");
+const loader = document.querySelector(".loader");
 
 if (token) {
   topBar();
@@ -22,3 +23,5 @@ preventListing();
 preventBid();
 bidTrigger();
 previewDisplay();
+
+loader.classList.add("d-none");

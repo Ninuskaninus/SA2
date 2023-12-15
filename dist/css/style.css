@@ -11929,6 +11929,10 @@ footer {
   background-color: #212121;
 }
 
+main {
+  position: relative;
+}
+
 .btn-primary {
   background-color: #6b65ad;
   border-color: #212121;
@@ -12259,6 +12263,26 @@ label {
   box-shadow: 6px 9px 4px 0px rgba(0, 0, 0, 0.25);
   border-color: #000;
   color: #fff;
+}
+
+.loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+svg path,
+svg rect {
+  fill: #6b65ad;
 }
 
 /*# sourceMappingURL=style.css.map */
