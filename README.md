@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fa4a5500-e8e4-4fb7-8cab-ca500a76fcad/deploy-status)](https://app.netlify.com/sites/tubular-salmiakki-a0ca6b/deploys)
+
 # Auction Website Project
 
 ## Goal
