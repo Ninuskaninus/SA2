@@ -9,15 +9,16 @@ export function renderedListings() {
     return;
   }
 
-  const sortedListing = listings
-    .filter(
-      (listing) => listing.title && listing.title.toLowerCase() !== "test",
-    )
-    .sort((a, b) => new Date(b.updated) - new Date(a.updated));
+const excludedTitles = ["test", "hei", "heihei", "123", "ffedef", "hello", "hsuwhduiw", "heycrsiente", "jdwwd", "heiii", "hfdhsh",  "ggggg" , "crgoat"];
 
-  sortedListing.forEach((listing) => {
-    createCards(listingsContainer, listing);
-  });
+const sortedListing = listings
+  .filter((listing) => listing.title && !excludedTitles.includes(listing.title.toLowerCase()))
+  .sort((a, b) => new Date(b.updated) - new Date(a.updated));
+
+sortedListing.forEach((listing) => {
+  createCards(listingsContainer, listing);
+});
+
 }
 
 
@@ -35,11 +36,11 @@ export function createCards(container, listing) {
 
   const image = listing.media;
 
-  if (image.length > 0) {
-    cardImage.src = image[0];
-  } else {
-    cardImage.src =
+  if (image.length < 0 || image == null || image == undefined || image == "") {
+        cardImage.src =
       "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";
+  } else {
+    cardImage.src = image[0];
   }
 
   cardImage.alt = listing.title;
@@ -100,10 +101,14 @@ export function createCards(container, listing) {
   bidBtn.dataset.toggle = "modal";
   bidBtn.dataset.target = "#bidModal";
   cardFooter.appendChild(bidBtn);
+
+  const username = localStorage.getItem("username");
+  const sellerName = listing.seller.name;
+
+  if (username === sellerName) {
+    bidBtn.classList.add("d-none");
+  } else {
+    bidBtn.classList.remove("d-none");
+  }
 }
 
-function isValidImageUrl(url) {
-  const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"];
-  const lowercasedUrl = url.toLowerCase();
-  return imageExtensions.some((ext) => lowercasedUrl.endsWith(ext));
-}
