@@ -8,3 +8,8 @@
   --bs-text-opacity: 1;
   color: $pink !important;
 }
+
+.rounded-circle{
+  object-fit: cover;
+  object-position: center;
+}

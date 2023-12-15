@@ -57,8 +57,8 @@ Selected design application:
 
 Planning was done with:
 
-- Trello - [Trello board](#)
-- Excel - [Gantt chart](#)
+- Trello - Trello board
+- Excel - Gantt chart
 
 ### Special thanks
 
