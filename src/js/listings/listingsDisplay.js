@@ -36,11 +36,11 @@ export function createCards(container, listing) {
 
   const image = listing.media;
 
-  if (image.length > 0) {
-    cardImage.src = image[0];
-  } else {
-    cardImage.src =
+  if (image.length < 0 || image == null || image == undefined || image == "") {
+        cardImage.src =
       "https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image@2x.png";
+  } else {
+    cardImage.src = image[0];
   }
 
   cardImage.alt = listing.title;
@@ -112,12 +112,3 @@ export function createCards(container, listing) {
   }
 }
 
-
-
-
-
-function isValidImageUrl(url) {
-  const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"];
-  const lowercasedUrl = url.toLowerCase();
-  return imageExtensions.some((ext) => lowercasedUrl.endsWith(ext));
-}
