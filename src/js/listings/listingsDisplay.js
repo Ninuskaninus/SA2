@@ -20,6 +20,7 @@ export function renderedListings() {
   });
 }
 
+
 export function createCards(container, listing) {
   const cardContainer = document.createElement("div");
   cardContainer.classList.add("col-md-6", "mb-4");
