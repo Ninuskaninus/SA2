@@ -13,6 +13,8 @@ import { preventBid } from "../ui/visibilityController.js";
 import { bidTrigger } from "../ui/buttonController.js";
 
 const token = localStorage.getItem("token");
+const loader = document.querySelector(".loader");
+loader.classList.remove("d-none");
 
 loginTrigger();
 registerTrigger();
@@ -44,3 +46,5 @@ filterRender(listings, listingsContainer);
 bidTrigger();
 
 getProfile();
+
+loader.classList.add("d-none");

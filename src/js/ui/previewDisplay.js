@@ -1,4 +1,6 @@
 import { getListings } from "../listings/listingsService.js";
+
+
 const listings = await getListings();
 const thisUrl = window.location.href;
 const thisId = thisUrl.split("id=").pop();
@@ -137,3 +139,5 @@ function sellerDisplay() {
   const sellerEmail = document.querySelector("#sellerEmail");
   sellerEmail.textContent = thisListing.seller.email;
 }
+
+
