@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.5"
+  },
+  "name": "semester-assigment-2",
+  "description": "Semester assigment 2 for Frontend Development at Noroff",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss/main.scss dist/css/style.css",
+    "watch": "sass --watch src/scss/main.scss dist/css/style.css",
+    "lint": "eslint \"**/*.{js,html,css,scss}\"",
+    "prettier": "prettier --write \"**/*.{js,html,css,scss}\"",
+    "format": "npm run prettier && npm run lint",
+    "webpack": "webpack-dev-server --open",
+    "start": "npm run build && npm run watch"
+  },
+  "author": "Nina Amdal",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "files.associations": {
+    "*.html": "html",
+    "*.scss": "scss",
+    "*.css": "css",
+    "*.js": "javascript"
+  }
+}

@@ -1,0 +1,127 @@
+.btn-primary {
+  background-color: $purple;
+  border-color: $primary;
+  color: $white;
+  &:hover {
+    background-color: $gray-800;
+    border-color: $gray-800;
+    color: $white;
+    box-shadow: $box-shadow;
+  }
+}
+
+.btn-secondary {
+  background-color: $primary;
+  border-color: $purple;
+  color: $white;
+  box-shadow: $box-shadow;
+  &:hover {
+    background-color: $gray-800;
+    border-color: $gray-800;
+  }
+}
+
+.navbar-toggler {
+  padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+  font-size: var(--bs-navbar-toggler-font-size);
+  line-height: 1;
+  color: $purple;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--bs-navbar-toggler-border-radius);
+  transition: var(--bs-navbar-toggler-transition);
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: var(--bs-navbar-toggler-icon-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.btn-outline-secondary {
+  background-color: $gray-800;
+  outline: none !important;
+  border-radius: 0 41px 41px 0;
+  border-color: $gray-800;
+  margin: 0;
+  box-shadow: $box-shadow;
+  &:hover {
+    background-color: $gray-800;
+    border-color: $gray-800;
+  }
+}
+
+.btn-link {
+  color: $white;
+  text-decoration: none;
+  &:hover {
+    color: $gray-400;
+    text-decoration: underline;
+  }
+}
+
+.btn-success {
+  border-radius: 25px;
+}
+
+.close {
+  color: $white;
+  background-color: $gray-800;
+  box-shadow: $box-shadow;
+  outline: none !important;
+  border: none;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  &:hover {
+    color: $gray-400;
+  }
+}
+
+.tag-element {
+  position: relative;
+  box-shadow: $box-shadow;
+  background-color: $gray-800;
+  text-align: center;
+  width: auto;
+}
+
+.remove-tag {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: $white;
+  box-shadow: $box-shadow;
+  outline: none !important;
+  border: none;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.4rem;
+  padding: 0;
+  z-index: 1;
+  &:hover {
+    color: $gray-400;
+  }
+  & p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.img-element {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.view-listing-btn {
+  max-height: 40px;
+}

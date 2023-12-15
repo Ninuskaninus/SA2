@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700&display=swap");
+
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343434;
+$gray-900: #212529;
+$black: #212121;
+
+$blue: #237b8b;
+$indigo: #6610f2;
+$purple: #6b65ad;
+$pink: #ff8080;
+$red: #dc3545;
+$orange: #f04d23;
+$yellow: #ffc107;
+$green: #509041;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+$primary: $black;
+$secondary: $purple;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $pink;
+$dark: $gray-800;
+
+$body-bg: $primary;
+$body-color: $white;
+
+$font-family-sans-serif: "Montserrat", sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+
+$box-shadow: 6px 9px 4px 0px rgba(0, 0, 0, 0.25);
+
+.bg-primary {
+  background-color: $primary !important;
+}

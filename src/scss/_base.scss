@@ -1,0 +1,70 @@
+body {
+  background-color: $primary;
+  color: $white;
+  font-family: $font-family-sans-serif;
+}
+
+nav {
+  background-color: $primary;
+  color: $white;
+  border-bottom: 1px solid $secondary;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url('/src/assets/menu.png') !important;
+}
+
+.navbar-nav button,
+.navbar-nav a {
+  background-color: $primary;
+  color: $white;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  &:hover {
+    background-color: $gray-800;
+    border-color: $gray-800;
+    color: $white;
+  }
+}
+
+.hero {
+  background-image: url("https://images.unsplash.com/photo-1505312926838-645f295a20e1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: top;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  & h1,
+  p,
+  button,
+  h2,
+  img,
+  .hero-content {
+    z-index: 2;
+  }
+}
+
+.hero-filter {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+footer{
+  background-color: $primary;
+
+}
+
+main{
+  position: relative;
+}

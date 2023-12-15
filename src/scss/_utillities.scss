@@ -1,0 +1,15 @@
+.gallery-image {
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-danger {
+  --bs-text-opacity: 1;
+  color: $pink !important;
+}
+
+.rounded-circle{
+  object-fit: cover;
+  object-position: center;
+}
