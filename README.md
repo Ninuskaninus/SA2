@@ -1,4 +1,5 @@
 # Auction Website Project
+![Screenshot of website](./src/assets/bidcraft.png)
 
 ## Goal
 
